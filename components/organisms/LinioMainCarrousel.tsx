@@ -1,14 +1,18 @@
-'use client'
-import { useEffect, useRef, useState } from 'react';
-import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
+"use client";
+import { useEffect, useRef, useState } from "react";
+import {
+  MousePointerClick,
+  CreditCard,
+  Calendar,
+  BookOpen,
+  User,
+} from "lucide-react";
 
 const images = [
-  'https://images.falabella.com/v3/assets/bltf612eb601c634386/blt4ed00bc6979257f1/6807c7f7e8bf0d0fbef05501/Vitrina_Dk_Linio_Celulares.webp',
-  'https://images.falabella.com/v3/assets/bltf612eb601c634386/blt633564ce1ef5a31c/6807c808da898c20b0f87d9d/Vitrina_Dk_Linio_Infantil.webp',
-  'https://images.falabella.com/v3/assets/bltf612eb601c634386/blt714214784ac3a2da/6807c808e41b1f12e6bb95c6/Vitrina_Dk_Linio_Motos.webp',
-  'https://images.falabella.com/v3/assets/bltf612eb601c634386/blt03fe45d47b6f5071/6807c7f877cfbfc1564093a0/Vitrina_Dk_Linio_Computo.webp',
-  'https://images.falabella.com/v3/assets/bltf612eb601c634386/blt03ddd50684b1d620/6807c808850b441f61b11a1c/Vitrina_Dk_Linio_Mascotas.webp',
-  'https://images.falabella.com/v3/assets/bltf612eb601c634386/blt6d38d761db0d7757/6807c7f83ed107ad6bd03454/Vitrina_Dk_Linio_Herramientas.webp'
+  "https://www.epssura.com/files/home-2021/img/banner-fiebre-amarilla-2025.png",
+  "https://www.epssura.com/files/home-2021/img/banner-fraude-ginecologia-junio-2025.png",
+  "https://www.epssura.com/files/home-2021/img/banner-farmadomicilios.png",
+  "https://www.epssura.com/files/home-2021/img/banner-como-reclamar-los-medicamentos-2024.jpg",
 ];
 
 const ImageCarousel: React.FC = () => {
@@ -34,46 +38,140 @@ const ImageCarousel: React.FC = () => {
   }, [currentIndex]);
 
   return (
-     <div className="w-full max-w-[1920px] mx-auto relative h-[460px] overflow-hidden rounded-lg">
+    <div className="w-full  mx-auto relative h-[420px] overflow-hidden group">
       <div
-        className="w-full h-full bg-cover bg-center transition-all duration-700 rounded-lg"
-        style={{ backgroundImage: `url(${images[currentIndex]})` }}
-      />
-      
+        className="flex h-full transition-transform duration-700 ease-in-out"
+        style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+      >
+        {images.map((img, idx) => (
+          <div
+            key={idx}
+            className="min-w-full h-full bg-cover bg-center"
+            style={{
+              backgroundImage: `linear-gradient(to bottom, rgba(24,23,23,0.38), rgb(0,0,0)), url(${img})`,
+            }}
+          />
+        ))}
+      </div>
+
       {/* Botones de navegación del carrusel */}
-      <div className="absolute inset-y-0 left-0 flex items-center">
-        <button 
+      {/* Flecha izquierda */}
+      <div className="absolute inset-y-0 left-0 flex items-center text-[#C2C2C2]">
+        <button
           onClick={prevSlide}
-          className="bg-white bg-opacity-60 hover:bg-opacity-90 p-3 ml-2 rounded-full shadow-lg transition"
+          className="p-3 ml-2 rounded-full transition hover:text-white
+                     opacity-100 -translate-x-12  group-hover:translate-x-0 duration-300"
         >
-          <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-gray-800" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+          <svg
+            width="30px"
+            height="30px"
+            viewBox="0 0 1024 1024"
+            className="icon"
+            version="1.1"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="currentColor"
+          >
+            <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
+            <g
+              id="SVGRepo_tracerCarrier"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            ></g>
+            <g id="SVGRepo_iconCarrier">
+              <path
+                d="M768 903.232l-50.432 56.768L256 512l461.568-448 50.432 56.768L364.928 512z"
+                fill="currentColor"
+              ></path>
+            </g>
           </svg>
         </button>
       </div>
 
-      <div className="absolute inset-y-0 right-0 flex items-center">
-        <button 
+      {/* Flecha derecha */}
+      <div className="absolute inset-y-0 right-0 flex items-center text-[#C2C2C2]">
+        <button
           onClick={nextSlide}
-          className="bg-white bg-opacity-60 hover:bg-opacity-90 p-3 mr-2 rounded-full shadow-lg transition"
+          className="p-3 ml-2 rounded-full transition hover:text-white
+                     opacity-100 translate-x-12  group-hover:translate-x-0 duration-300"
         >
-          <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-gray-800" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+          <svg
+            width="30px"
+            height="30px"
+            viewBox="0 0 1024 1024"
+            className="icon"
+            version="1.1"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="currentColor"
+            transform="rotate(180)"
+          >
+            <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
+            <g
+              id="SVGRepo_tracerCarrier"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            ></g>
+            <g id="SVGRepo_iconCarrier">
+              <path
+                d="M768 903.232l-50.432 56.768L256 512l461.568-448 50.432 56.768L364.928 512z"
+                fill="currentColor"
+              ></path>
+            </g>
           </svg>
         </button>
       </div>
 
       {/* Indicadores de navegación */}
-      <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
+      <div className="absolute bottom-30 left-1/4 transform -translate-x-3/4 flex space-x-2 gap-1">
         {images.map((_, idx) => (
           <div
             key={idx}
             className={`w-2.5 h-2.5 rounded-full cursor-pointer transition-all duration-300 ${
-              currentIndex === idx ? 'bg-white scale-125' : 'bg-gray-400'
+              currentIndex === idx ? "bg-[#049ad3] scale-110" : "bg-gray-400"
             }`}
             onClick={() => setCurrentIndex(idx)}
           />
         ))}
+      </div>
+      {/* Opciones a un clic */}
+      <div className="absolute bottom-0 left-1/2  -translate-x-2/4  space-x-20 w-[59%]">
+        <div className="w-full text-white">
+          <div className="  items-center py-4">
+            {/* Título con líneas */}
+            <div className="flex items-center w-full justify-center mb-3">
+              <div className="flex-1 border-t-2 border-white"></div>
+              <span className="px-1 text-[18px] font-semibold mb-1">
+                OPCIONES A UN CLIC
+              </span>
+              <div className="flex-1 border-t-2 border-white"></div>
+            </div>
+
+            {/* Opciones */}
+            <div className="flex flex-wrap justify-center gap-6 text-sm">
+              <div className="flex flex-wrap justify-center text-sm divide-x divide-gray-500">
+                <div className="flex items-center gap-2 px-4 cursor-pointer hover:text-[#08a4e4] transition">
+                  <span className="w-4 h-4">📱</span>
+                  <span>SERVICIOS A UN CLIC</span>
+                </div>
+                <div className="flex items-center gap-2 px-4 cursor-pointer hover:text-[#08a4e4] transition">
+                  <span className="w-4 h-4">💳</span>
+                  <span>MEDIOS DE PAGO</span>
+                </div>
+                <div className="flex items-center gap-2 px-4 cursor-pointer hover:text-[#08a4e4] transition">
+                  <span className="w-4 h-4">🖱️</span>
+                  <span>TURNO VIRTUAL</span>
+                </div>
+                <div className="flex items-center gap-2 px-4 cursor-pointer hover:text-[#08a4e4] transition">
+                  <span className="w-4 h-4">📋</span>
+                  <span>DIRECTORIO MÉDICO</span>
+                </div>
+                <div className="flex items-center gap-2 px-4 cursor-pointer hover:text-[#08a4e4] transition">
+                  <span className="w-4 h-4">👤</span>
+                  <span>CERTIFICADO DE DISCAPACIDAD</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );

@@ -1,2 +1,8 @@
 @import "tailwindcss";
 
+.link-custom {
+    color: #0033A0;
+    font-size: 14px;
+    font-weight: bold;
+  }
+  
