@@ -1,4 +1,4 @@
-import LinioMainCarrousel from "@/components/organisms/LinioMainCarrousel";
+import SuraMainCarrousel from "@/components/organisms/SuraMainCarrousel";
 import CategoriesLinio from "@/components/organisms/CategoriesLinio";
 import Image from "next/image";
 import LastSeen from "@/components/organisms/LastSeenLinio";
@@ -12,6 +12,6 @@ import Footer from "@/components/organisms/Footer";
 
 export default function Home() {
   return (
-    <><LinioMainCarrousel /><CategoriesLinio /> <LastSeen /> <DiscountsTeconology /> <DontMissIt /> <RenewYourHome /> <DownCategories /> <FollowUs />  <CreditsLinio /> <Footer  /> </>
+    <><SuraMainCarrousel /><CategoriesLinio /> <LastSeen /> <DiscountsTeconology /> <DontMissIt /> <RenewYourHome /> <DownCategories /> <FollowUs />  <CreditsLinio /> <Footer  /> </>
   );
 }

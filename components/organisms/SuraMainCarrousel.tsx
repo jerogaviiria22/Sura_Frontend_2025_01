@@ -8,11 +8,34 @@ import {
   User,
 } from "lucide-react";
 
-const images = [
-  "https://www.epssura.com/files/home-2021/img/banner-fiebre-amarilla-2025.png",
-  "https://www.epssura.com/files/home-2021/img/banner-fraude-ginecologia-junio-2025.png",
-  "https://www.epssura.com/files/home-2021/img/banner-farmadomicilios.png",
-  "https://www.epssura.com/files/home-2021/img/banner-como-reclamar-los-medicamentos-2024.jpg",
+const items = [
+  {
+    img: "https://www.epssura.com/files/home-2021/img/foro-17-septiembre.jpg",
+    alt: "Logo EPS Sura",
+    text: "Hablemos de prevención del suicidio: botiquín de primeros auxilios en salud mental. - Conéctate a nuestro foro en vivo este miércoles 17 de septiembre a las 6:00 p. m.",
+    button: "INGRESA",
+    class: "font-bold text-[18px] mb-5",
+  },
+  {
+    img: "https://www.epssura.com/files/home-2021/img/banner-fraude-ginecologia-junio-2025.png",
+    alt: "Imagen salud",
+    text: "Ninguna persona o institución de salud te va a solicitar en nombre de SURA, mostrar tus partes íntimas en una videollamada. Si te lo piden, ¡no lo hagas!",
+    class: "font-bold text-[18px] mb-5 mt-5",
+  },
+  {
+    img: "https://www.epssura.com/files/home-2021/img/banner-farmadomicilios.png",
+    alt: "Imagen afiliados",
+    text: "Farmadomicilios - La mejor opción para solicitar tus medicamentos sin filas ni desplazamientos.",
+    button: "INGRESA AQUÍ",
+    class: "font-bold text-[24px] mb-5",
+  },
+  {
+    img: "https://www.epssura.com/files/home-2021/img/banner-como-reclamar-los-medicamentos-2024.jpg",
+    alt: "Imagen afiliados",
+    text: "¿Cómo reclamar los medicamentos que te ordena tu médico?",
+    button: "AQUÍ TE CONTAMOS",
+    class: "font-bold text-[24px] mb-5",
+  },
 ];
 
 const ImageCarousel: React.FC = () => {
@@ -20,11 +43,11 @@ const ImageCarousel: React.FC = () => {
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   const nextSlide = () => {
-    setCurrentIndex((prev) => (prev + 1) % images.length);
+    setCurrentIndex((prev) => (prev + 1) % items.length);
   };
 
   const prevSlide = () => {
-    setCurrentIndex((prev) => (prev - 1 + images.length) % images.length);
+    setCurrentIndex((prev) => (prev - 1 + items.length) % items.length);
   };
 
   const resetTimeout = () => {
@@ -33,7 +56,7 @@ const ImageCarousel: React.FC = () => {
 
   useEffect(() => {
     resetTimeout();
-    timeoutRef.current = setTimeout(nextSlide, 4000);
+     timeoutRef.current = setTimeout(nextSlide, 10000);
     return resetTimeout;
   }, [currentIndex]);
 
@@ -43,14 +66,31 @@ const ImageCarousel: React.FC = () => {
         className="flex h-full transition-transform duration-700 ease-in-out"
         style={{ transform: `translateX(-${currentIndex * 100}%)` }}
       >
-        {images.map((img, idx) => (
+        {items.map((item, idx) => (
           <div
             key={idx}
-            className="min-w-full h-full bg-cover bg-center"
+            className="relative min-w-full h-full bg-cover bg-center flex items-center justify-center"
             style={{
-              backgroundImage: `linear-gradient(to bottom, rgba(24,23,23,0.38), rgb(0,0,0)), url(${img})`,
+              backgroundImage: `linear-gradient(to bottom, rgba(24,23,23,0.38), rgb(0,0,0)), url(${item.img})`,
             }}
-          />
+          >
+            {/* Contenedor del texto */}
+            <div className="text-left text-white p-6 absolute top-15   left-1/4 transform -translate-x-1/6  space-x-2  max-w-[600px]">
+              <h1 className={item.class}>
+                {item.text.split("-").map((line, idx) => (
+                  <span key={idx} className="block leading-[1.2]">
+                    {line}
+                  </span>
+                ))}
+              </h1>
+
+              {item.button && (
+                <button className="px-7 py-1 rounded-full border-white border-2 transition-all font-bold text-[15px] cursor-pointer">
+                  {item.button}
+                </button>
+              )}
+            </div>
+          </div>
         ))}
       </div>
 
@@ -122,7 +162,7 @@ const ImageCarousel: React.FC = () => {
 
       {/* Indicadores de navegación */}
       <div className="absolute bottom-30 left-1/4 transform -translate-x-3/4 flex space-x-2 gap-1">
-        {images.map((_, idx) => (
+        {items.map((_, idx) => (
           <div
             key={idx}
             className={`w-2.5 h-2.5 rounded-full cursor-pointer transition-all duration-300 ${

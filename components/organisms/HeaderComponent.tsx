@@ -70,8 +70,8 @@ export default function HeaderComponent() {
                 <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
                 <g
                   id="SVGRepo_tracerCarrier"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                 ></g>
                 <g id="SVGRepo_iconCarrier">
                   {" "}
@@ -80,7 +80,7 @@ export default function HeaderComponent() {
                     stroke="none"
                     strokeWidth="1"
                     fill="none"
-                    fill-rule="evenodd"
+                    fillRule="evenodd"
                   >
                     {" "}
                     <path
@@ -107,8 +107,8 @@ export default function HeaderComponent() {
                 <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
                 <g
                   id="SVGRepo_tracerCarrier"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                 ></g>
                 <g id="SVGRepo_iconCarrier">
                   {" "}
@@ -121,7 +121,7 @@ export default function HeaderComponent() {
                     d="M18.1553 18.1553L21.8871 21.8871"
                     stroke="#0033A0"
                     strokeWidth="2"
-                    stroke-linecap="round"
+                    strokeLinecap="round"
                   ></path>{" "}
                 </g>
               </svg>
