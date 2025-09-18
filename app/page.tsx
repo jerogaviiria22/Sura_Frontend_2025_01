@@ -1,7 +1,7 @@
 import SuraMainCarrousel from "@/components/organisms/SuraMainCarrousel";
-import CategoriesLinio from "@/components/organisms/CategoriesLinio";
+import SuraPlataform from "@/components/organisms/SuraPlataform";
 import Image from "next/image";
-import LastSeen from "@/components/organisms/LastSeenLinio";
+import Services from "@/components/organisms/OneClickServices";
 import DiscountsTeconology from "@/components/organisms/DiscountsTecnologyLinio";
 import DontMissIt from "@/components/organisms/DontMissItLinio";
 import RenewYourHome from "@/components/organisms/RenewYourHome";
@@ -12,6 +12,6 @@ import Footer from "@/components/organisms/Footer";
 
 export default function Home() {
   return (
-    <><SuraMainCarrousel /><CategoriesLinio /> <LastSeen /> <DiscountsTeconology /> <DontMissIt /> <RenewYourHome /> <DownCategories /> <FollowUs />  <CreditsLinio /> <Footer  /> </>
+    <><SuraMainCarrousel /><SuraPlataform /> <Services /> <DiscountsTeconology /> <DontMissIt /> <RenewYourHome /> <DownCategories /> <FollowUs />  <CreditsLinio /> <Footer  /> </>
   );
 }
