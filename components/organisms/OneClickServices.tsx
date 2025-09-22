@@ -22,30 +22,30 @@ const Services = () => {
 
   return (
     <div className="flex flex-mx full-width">
-      <div className="p-20 flex flex-col justify-center max-h-[800px] md:w-[38%] w-full relative z-10 ">
-        <div className="border-t-2 border-[#00aec7] ml-[45%] max-w-[60px]"></div>
-        <h2 className="text-[#0133a1] text-4xl font-bold  mb-4 text-left max-w-[240px] ml-[45%] mt-2">
+      <div className="p-20 flex flex-col justify-center max-h-[800px] md:w-[40%] w-full relative z-8 ">
+        <div className="border-t-2 border-[#00aec7] ml-[35%] max-w-[60px]"></div>
+        <h2 className="text-[#0133a1] text-4xl font-bold  mb-4 text-left max-w-[280px] ml-[35%] mt-2">
           Servicios a un clic
         </h2>
-        <p className="font-semibold text-gray-700 text-md mb-3 ml-[45%] text-left max-w-[270px] mt-3">
+        <p className="font-semibold text-gray-700 text-md mb-3 ml-[35%] text-left max-w-[270px] mt-3">
           Realiza fácilmente tus procesos con EPS SURA. ¡Conoce aquí las
           soluciones virtuales que tenemos especialmente para ti!
         </p>
-        <button className="bg-[#0033A0] text-white font-bold  py-1 text-center rounded-full cursor-pointer max-w-[270px] ml-[45%] hover:underline">
+        <button className="bg-[#0033A0] text-white font-bold  py-1 text-center rounded-full cursor-pointer max-w-[270px] ml-[35%] hover:underline">
           VER TODOS LOS SERVICIOS
         </button>
       </div>
 
       {/* Tarjetas */}
-      <div className="flex flex-wrap gap-7 p-9 md:-ml-36 relative z-20 md:w-[52%] mt-3">
+      <div className="flex flex-wrap gap-3 p-9 md:-ml-23 relative z-20 md:w-[70%] mt-3">
         {items.map((item, i) => (
           <div
           key={i}
-          className="bg-white text-center flex flex-col border border-gray-200 w-[280px] h-[380px] rounded-sm shadow-lg"
+          className="bg-white text-center flex flex-col border border-gray-200 w-[230px] h-[340px] rounded-sm shadow-lg"
         >
           {/* Contenedor central */}
           <div className="flex-1 flex flex-col items-center justify-center">
-            <h3 className="text-xl text-gray-500 font-semibold px-2 max-w-[170px] leading-tight m-0 mb-3 -mt-3">
+            <h3 className="text-md text-gray-600 font-semibold px-2 max-w-[170px] leading-tight m-0 mb-3 -mt-3">
               {item.title}
             </h3>
             <img
