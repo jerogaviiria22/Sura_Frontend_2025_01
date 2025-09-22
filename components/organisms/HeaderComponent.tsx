@@ -2,11 +2,22 @@
 
 import AmazonLogin from "@/app/(webpage)/login/page";
 import React, { useState } from "react";
+import Link from "next/link"
 
 export default function HeaderComponent() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [currentView, setCurrentView] = useState("header");
   const [isOpen, setIsOpen] = useState(false);
+
+  const menuItems = [
+    { label: "INICIO", href: "/" },
+    { label: "AFILIADOS", href: "/afiliados" },
+    { label: "EMPLEADORES", href: "/empleadores" },
+    { label: "INDEPENDIENTES", href: "/independientes" },
+    { label: "ASESORES COMERCIALES", href: "/asesores" },
+    { label: "PRESTADORES DE SERVICIO", href: "/prestadores" },
+    { label: "PAC", href: "/pac" },
+  ];
 
   //const [activeCategory, setActiveCategory] = useState<keyof typeof categories>("Tecnología");
   const slugify = (str: string) =>
@@ -20,7 +31,7 @@ export default function HeaderComponent() {
     return <AmazonLogin />;
   }
   return (
-    <header className="w-full">
+    <header className="sticky top-0 w-full z-50 bg-white shadow-md">
       {/* Barra superior blanca */}
       <div className="w-full bg-[#53575b] ">
         <div className="max-w-[1200px] flex items-center gap-8 h-[34px] px-4"></div>
@@ -52,7 +63,7 @@ export default function HeaderComponent() {
               Solicitar clave
             </a>
           </div>
-          
+
           <div className="flex items-center">
             {/* <!-- Botón --> */}
             <button className="bg-[#0033A0] text-white font-bold px-6 py-2 rounded-full flex items-center gap-2 mr-4 cursor-pointer">
@@ -129,8 +140,29 @@ export default function HeaderComponent() {
           </div>
         </div>
       </div>
-      <div className="w-full bg-[#08a4e4] ">
-        <div className="max-w-[1200px] flex items-center gap-8 h-[34px] px-4"></div>
+
+      {/* HeaderAzul */}
+      <div className="w-full bg-[#08a4e4]">
+        <div className="max-w-[1200px] mx-auto flex items-center justify-between px-4 h-[40px] text-white font-bold">
+          {/* Logo o título */}
+          <div className=" tracking-wide text-md">
+            EPS
+          </div>
+
+          {/* Menú de navegación */}
+          <nav className="hidden md:flex items-center gap-6 lg:gap-8">
+            {menuItems.map((item) => (
+              <Link
+                key={item.label}
+                href={item.href}
+                className=" text-xs sm:text-sm hover:underline transition"
+              >
+                {item.label}
+              </Link>
+            ))}
+          </nav>
+
+        </div>
       </div>
     </header>
   );
