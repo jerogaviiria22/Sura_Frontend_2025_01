@@ -145,25 +145,44 @@ export default function HeaderComponent() {
       <div className="w-full bg-[#08a4e4]">
         <div className="max-w-[1200px] mx-auto flex items-center justify-between px-4 h-[40px] text-white font-bold">
           {/* Logo o título */}
-          <div className=" tracking-wide text-md">
+          <div className="tracking-wide text-md">
             EPS
           </div>
 
           {/* Menú de navegación */}
-          <nav className="hidden md:flex items-center gap-6 lg:gap-8">
+          <nav className="hidden md:flex items-center gap-6 lg:gap-8 h-full">
             {menuItems.map((item) => (
               <Link
                 key={item.label}
                 href={item.href}
-                className=" text-xs sm:text-sm hover:underline transition"
+                className="group relative flex items-center justify-center text-xs sm:text-sm text-white h-full"
               >
                 {item.label}
+
+                {/* Línea animada */}
+                <div
+                  className="
+             absolute
+            bottom-0
+            left-0
+            h-[0.5px]
+            w-full
+            bg-white
+            origin-center
+            scale-x-0
+            scale-y-100      /* ✅ mantiene el alto en 1px */
+            transition-transform
+            duration-300
+            group-hover:scale-x-100
+            "
+                />
               </Link>
             ))}
           </nav>
-
         </div>
       </div>
+
+
     </header>
   );
 }
