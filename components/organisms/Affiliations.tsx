@@ -1,75 +1,104 @@
 "use client";
+import React from "react";
 import { ArrowRight } from "lucide-react";
 
-const Affiliations = () => {
-  const items = [
-    {
-      img: "https://www.epssura.com/files/home-2021/img/procesos-con-eps-sura_citas-medicas-2025.webp",
-      title: "Citas médicas",
-      link: "IR",
-    },
-    {
-      img: "https://www.epssura.com/files/home-2021/img/procesos-con-eps-sura_medicamentos-2025.webp",
-      title: "Farmadomicilios: solicita tus medicamentos a domicilio",
-      link: "IR",
-    },
-    {
-      img: "https://www.epssura.com/files/home-2021/img/procesos-con-eps-sura_cambios-ips-2025.webp",
-      title: "Cambios de IPS",
-      link: "IR",
-    },
-  ];
+const affiliationsItems = [
+  {
+    title: "Plan de Beneficios en Salud",
+    img: "https://www.epssura.com/files/home-2021/img/plan-de-beneficios-en-salud-2025.webp",
+    link: "#",
+  },
+  {
+    title: "Régimen subsidiado",
+    img: "https://www.epssura.com/files/home-2021/img/regimen-subsidiado-2025.webp",
+    link: "#",
+  },
+];
 
-  return (
-    <div className="flex flex-mx full-width bg-[#ecf0f1]">
-      <div className="p-20 flex flex-col justify-center max-h-[800px] md:w-[40%] w-full relative z-8 ">
-        <div className="border-t-2 border-[#00aec7] ml-[35%] max-w-[60px]"></div>
-        <h2 className="text-[#0133a1] text-4xl font-bold  mb-4 text-left max-w-[280px] ml-[35%] mt-2">
-          Servicios a un clic
-        </h2>
-        <p className="font-semibold text-gray-700 text-md mb-3 ml-[35%] text-left max-w-[270px] mt-3">
-          Realiza fácilmente tus procesos con EPS SURA. ¡Conoce aquí las
-          soluciones virtuales que tenemos especialmente para ti!
-        </p>
-        <button className="bg-[#0033A0] text-white font-bold  py-1 text-center rounded-full cursor-pointer max-w-[270px] ml-[35%] hover:underline">
-          VER TODOS LOS SERVICIOS
-        </button>
-      </div>
+class Affiliations extends React.Component {
+  render() {
+    return (
+      <section className="bg-[#ecf0f1] py-6 w-full">
+        <div className="mx-auto text-center">
+          <h2 className="text-[#0133a1] text-3xl md:text-4xl font-bold py-2">
+            Todo sobre afiliaciones
+          </h2>
+          <div className="border-t-2 border-[#ccd6ec] max-w-[60px] mx-auto"></div>
+        </div>
 
-      {/* Tarjetas */}
-      <div className="flex flex-wrap gap-3 p-9 md:-ml-23 relative z-20 md:w-[70%] mt-3">
-        {items.map((item, i) => (
-          <div
-          key={i}
-          className="bg-white text-center flex flex-col border border-gray-200 w-[230px] h-[340px] rounded-sm shadow-lg"
-        >
-          {/* Contenedor central */}
-          <div className="flex-1 flex flex-col items-center justify-center">
-            <h3 className="text-md text-gray-600 font-semibold px-2 max-w-[170px] leading-tight m-0 mb-3 -mt-3">
-              {item.title}
-            </h3>
-            <img
-              src={item.img}
-              alt={item.title}
-              className="w-[140px] h-[160px] object-contain"
-            />
-          </div>
-        
-          {/* Link abajo */}
-          <div className="p-4">
+        <div className="max-w-[1200px] mx-auto flex flex-col md:flex-row items-start gap-10 px-4 mt-5">
+
+
+          {/* ----------- COLUMNA IZQUIERDA ----------- */}
+          <div className="md:w-[45%] w-full flex flex-col gap-6">
+
+
+            <div className="flex flex-col gap-4">
+              {affiliationsItems.map((item, i) => (
+                <div
+                  key={i}
+                  className="flex bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition"
+                >
+                  {/* Imagen izquierda */}
+                  <img
+                    src={item.img}
+                    alt={item.title}
+                    className="w-32 h-24 object-cover"
+                  />
+
+                  {/* Texto + enlace */}
+                  <div className="flex flex-1 justify-between items-center px-4">
+                    <h3 className="font-semibold text-gray-700 text-md">
+                      {item.title}
+                    </h3>
+                    <a
+                      href={item.link}
+                      className="text-[#003DA5] font-bold flex items-center gap-1 hover:text-[#1f57cf]"
+                    >
+                      IR <ArrowRight size={16} />
+                    </a>
+                  </div>
+                </div>
+              ))}
+            </div>
+
             <a
               href="#"
-              className="text-[#003DA5] font-bold flex items-center justify-end gap-1 hover:text-[#1f57cf]"
+              className="text-[#003DA5] font-bold underline flex items-center gap-1 hover:no-underline"
             >
-              {item.link} <ArrowRight size={16} />
+              Solicitar turno virtual de afiliación
             </a>
           </div>
+
+          {/* ----------- COLUMNA DERECHA ----------- */}
+          <div className="md:w-[55%] w-full relative flex justify-center items-center">
+            {/* Cuadro azul de fondo */}
+            <div className="absolute top-8 left-8 right-0 bottom-0 bg-[#00AEC7] rounded-sm -z-10"></div>
+
+            {/* Imagen principal con overlay */}
+            <div className="relative w-full max-w-[520px] shadow-lg">
+              <img
+                src="/vendor/imgs/doctor-afiliacion.webp"
+                alt="Afiliación EPS"
+                className="w-full h-[340px] object-cover"
+              />
+              <div className="absolute inset-0 bg-black/30 flex flex-col justify-center px-8">
+                <p className="text-white text-lg font-semibold mb-2">
+                  Si te trasladaron a EPS SURA
+                </p>
+                <a
+                  href="#"
+                  className="text-white font-bold flex items-center gap-1 hover:underline"
+                >
+                  INGRESA AQUÍ <ArrowRight size={18} />
+                </a>
+              </div>
+            </div>
+          </div>
         </div>
-        
-        ))}
-      </div>
-    </div>
-  );
-};
+      </section>
+    );
+  }
+}
 
 export default Affiliations;
